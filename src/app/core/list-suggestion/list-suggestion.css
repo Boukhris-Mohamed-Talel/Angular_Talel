@@ -1,0 +1,117 @@
+:host {
+  display: block;
+}
+
+.list-suggestion {
+  background-color: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.filters {
+  display: flex;
+  gap: 1rem;
+  margin: 1rem 0 1.5rem;
+  flex-wrap: wrap;
+}
+
+.filters input {
+  padding: 0.6rem 0.8rem;
+  border: 1px solid #d0d7de;
+  border-radius: 8px;
+  min-width: 220px;
+}
+
+.empty {
+  padding: 1rem;
+  text-align: center;
+  color: #6b7280;
+}
+
+.cards {
+  display: grid;
+  gap: 1rem;
+}
+
+.card {
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 1rem;
+  background: #f9fafb;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.status {
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  text-transform: capitalize;
+  color: white;
+}
+
+.status.acceptee {
+  background-color: #16a34a;
+}
+
+.status.en_attente {
+  background-color: #f59e0b;
+}
+
+.status.refusee {
+  background-color: #dc2626;
+}
+
+.description {
+  margin: 0.6rem 0;
+  color: #374151;
+}
+
+.meta {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  font-size: 0.9rem;
+  color: #4b5563;
+}
+
+.likes {
+  margin: 0.6rem 0;
+  font-weight: 600;
+}
+
+.actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.actions button {
+  padding: 0.5rem 0.9rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background-color: #2563eb;
+  color: white;
+}
+
+.actions button[disabled] {
+  background-color: #9ca3af;
+  cursor: not-allowed;
+}
+
+.favorites {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+.favorites ul {
+  padding-left: 1.2rem;
+}
