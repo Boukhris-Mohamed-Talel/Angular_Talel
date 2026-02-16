@@ -92,7 +92,8 @@
   flex-wrap: wrap;
 }
 
-.actions button {
+.actions button,
+.details button {
   padding: 0.5rem 0.9rem;
   border: none;
   border-radius: 6px;
@@ -104,6 +105,10 @@
 .actions button[disabled] {
   background-color: #9ca3af;
   cursor: not-allowed;
+}
+
+.details {
+  margin-top: 0.75rem;
 }
 
 .favorites {

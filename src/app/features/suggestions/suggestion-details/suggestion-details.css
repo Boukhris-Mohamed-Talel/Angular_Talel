@@ -1,0 +1,33 @@
+:host {
+  display: block;
+}
+
+.details {
+  background-color: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.description {
+  margin: 0.6rem 0 1rem;
+  color: #374151;
+}
+
+.meta {
+  display: grid;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
+  color: #4b5563;
+}
+
+.nav {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+a {
+  color: #2563eb;
+  text-decoration: none;
+}

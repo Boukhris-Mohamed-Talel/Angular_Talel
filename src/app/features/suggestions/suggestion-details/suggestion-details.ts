@@ -1,17 +1,19 @@
-import { Component } from '@angular/core';
-import { Suggestion } from '../../models/suggestion';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Suggestion } from '../../../models/suggestion';
 
 @Component({
-  selector: 'app-list-suggestion',
+  selector: 'app-suggestion-details',
   standalone: false,
-  templateUrl: './list-suggestion.html',
-  styleUrl: './list-suggestion.css',
+  templateUrl: './suggestion-details.html',
+  styleUrl: './suggestion-details.css',
 })
-export class ListSuggestion {
-  searchTitle = '';
-  favorites: Suggestion[] = [];
+export class SuggestionDetails implements OnInit {
+  suggestion: Suggestion | undefined;
+  prevId: number | null = null;
+  nextId: number | null = null;
 
-  suggestions: Suggestion[] = [
+  private suggestions: Suggestion[] = [
     {
       id: 1,
       title: 'Organiser une journée team building',
@@ -54,25 +56,20 @@ export class ListSuggestion {
     },
   ];
 
-  get filteredSuggestions(): Suggestion[] {
-    const title = this.searchTitle.trim().toLowerCase();
+  constructor(private route: ActivatedRoute) {}
 
-    return this.suggestions.filter(suggestion =>
-      suggestion.title.toLowerCase().includes(title)
-    );
-  }
+  ngOnInit(): void {
+    this.route.paramMap.subscribe(params => {
+      const idParam = params.get('id');
+      const id = Number(idParam);
+      const index = this.suggestions.findIndex(item => item.id === id);
 
-  likeSuggestion(suggestion: Suggestion) {
-    suggestion.nbLikes += 1;
-  }
-
-  addToFavorites(suggestion: Suggestion) {
-    if (!this.isFavorite(suggestion)) {
-      this.favorites = [...this.favorites, suggestion];
-    }
-  }
-
-  isFavorite(suggestion: Suggestion): boolean {
-    return this.favorites.some(item => item.id === suggestion.id);
+      this.suggestion = index >= 0 ? this.suggestions[index] : undefined;
+      this.prevId = index > 0 ? this.suggestions[index - 1].id : null;
+      this.nextId =
+        index >= 0 && index < this.suggestions.length - 1
+          ? this.suggestions[index + 1].id
+          : null;
+    });
   }
 }

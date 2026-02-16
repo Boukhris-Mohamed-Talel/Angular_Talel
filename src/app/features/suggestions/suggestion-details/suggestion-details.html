@@ -1,0 +1,25 @@
+<div class="details" *ngIf="suggestion; else notFound">
+  <h3>{{ suggestion.title }}</h3>
+  <p class="description">{{ suggestion.description }}</p>
+
+  <div class="meta">
+    <span>Catégorie: {{ suggestion.category }}</span>
+    <span>Date: {{ suggestion.date | date: 'yyyy-MM-dd' }}</span>
+    <span>Status: {{ suggestion.status }}</span>
+    <span>Likes: {{ suggestion.nbLikes }}</span>
+  </div>
+
+  <div class="nav">
+    <a *ngIf="prevId !== null" [routerLink]="['/suggestions', prevId]">Prev</a>
+    <a *ngIf="nextId !== null" [routerLink]="['/suggestions', nextId]">Next</a>
+  </div>
+
+  <a [routerLink]="['/suggestions']">Back to list</a>
+</div>
+
+<ng-template #notFound>
+  <div class="details">
+    <h3>Suggestion introuvable</h3>
+    <a [routerLink]="['/suggestions']">Back to list</a>
+  </div>
+</ng-template>
